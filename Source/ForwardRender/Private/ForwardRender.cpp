@@ -42,24 +42,21 @@ void FForwardRenderModule::ShutdownModule()
 
 void FForwardRenderModule::OnMapChange(uint32)
 {
-#if PLATFORM_WINDOWS
-	// Force the editor into DirectX Mobile Preview on ES31
+	// Force the editor into Vulkan Mobile Preview on ES31
 	// Stole these settings from Engine/Config/Windows/DataDrivenPlatformInfo.ini
 	const FPreviewPlatformInfo PreviewPlatform(
 		ERHIFeatureLevel::ES3_1,
-		SP_PCD3D_ES3_1,
+		SP_VULKAN_PCES3_1,
 		FName("PC"),
-		FName("PCD3D_ES31"),
-		FName("Windows_Preview_ES31"),
-		true,
-		FName("PCD3D_ES3_1_Preview")
-		);
-
+											   FName("PCVulkan_ES31"),
+											   FName("Windows_Preview_ES31"),
+											   true,
+											FName("VULKAN_PCES3_1")
+	);
 
 	GEditor->SetPreviewPlatform(PreviewPlatform, false);
-#endif
 }
 
 #undef LOCTEXT_NAMESPACE
-	
+
 IMPLEMENT_MODULE(FForwardRenderModule, ForwardRender)

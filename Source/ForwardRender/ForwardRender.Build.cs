@@ -1,22 +1,27 @@
-// Copyright (c) Jared Taylor
-
 using UnrealBuildTool;
 
 public class ForwardRender : ModuleRules
 {
 	public ForwardRender(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PrivateDependencyModuleNames.AddRange(
+		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
 				"Core",
 				"CoreUObject",
 				"Engine",
-				"UnrealEd",
 				"DeveloperSettings",
+				"UnrealEd"
 			}
-			);
+		);
+
+		PrivateDependencyModuleNames.AddRange(
+			new string[]
+			{
+
+			}
+		);
 	}
 }
